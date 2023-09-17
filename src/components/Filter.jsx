@@ -2,7 +2,7 @@
 
 const Filter = () => {
     return (
-        <div className="mx-6 lg:flex justify-between">
+        <div className="mx-6 md:flex lg:flex justify-between">
             <div>
                 <h3 className="mt-5 font-semibold flex items-center"> Category</h3>
                 <div className="my-5 flex gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden">
@@ -23,8 +23,8 @@ const Filter = () => {
                     </button>
                 </div>
             </div>
-            <div className="max-w-sm px-4">
-                <div className="relative mt-5">
+            <div className="max-w-sm px-6">
+                <div className="relative mt-8 lg:mt-5">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
