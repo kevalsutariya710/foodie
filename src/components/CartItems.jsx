@@ -1,29 +1,38 @@
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+/* eslint-disable react/prop-types */
+import { AiOutlinePlusCircle, AiOutlineMinusCircle, AiOutlineDelete } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../redux/slice/CartSlice";
 
 
-const CartItems = () => {
+const CartItems = ({ id, img, name, price, qty }) => {
+
+    const dispatch = useDispatch();
+
     return (
-        <div className="flex gap-2 shadow-md p-3  border border-dotted border-gray-600 rounded-xl mt-3">
-            <div className="flex ">
-                <img src="https://img.freepik.com/free-photo/seafood-pizza_74190-5944.jpg?w=996&t=st=1693062328~exp=1693062928~hmac=53fd9ad496580db41c6ca8066510cd89c6b0a0389de8bb6b875a78a1eda09cb5"
-                    alt=""
-                    className=" w-[25vw] md:w-[10vw] lg:w-[6vw]"
-                />
-                <div className="">
-                    <span className="text-lg ">Title</span>
-                    <div className="flex justify-between">
-                        <span className="text-green-600">₹ 120</span>
-                        <div className="flex justify-center items-center gap-2 absolute right-7">
-                            <AiOutlineMinusCircle className="text-lg hover:text-green-800 transition-all cursor-pointer" />
-                            1
-                            <AiOutlinePlusCircle className="text-lg hover:text-green-800 transition-all cursor-pointer" />
-                        </div>
+        <div className="flex gap-2 shadow-md p-3  border border-dotted border-gray-600 rounded-xl mt-3" key={id}>
+            <AiOutlineDelete
+                className="absolute right-7 cursor-pointer"
+                onClick={() => {
+                    dispatch(removeFromCart(id));
+
+                }}
+            />
+
+            <img src={img}
+                alt=""
+                className=" w-[50px] h-[50px]"
+            />
+            <div className="leading-5">
+                <span className=" text-gray-800">{name}</span>
+                <div className="flex justify-between ">
+                    <span className="text-green-600">₹ {price}</span>
+                    <div className="flex justify-center items-center gap-2 absolute right-7 m-1">
+                        <AiOutlineMinusCircle className="text-xl hover:text-green-800 transition-all cursor-pointer" />
+                        {qty}
+                        <AiOutlinePlusCircle className="text-xl hover:text-green-800 transition-all cursor-pointer" />
                     </div>
                 </div>
-
             </div>
-
-
 
         </div>
     )
