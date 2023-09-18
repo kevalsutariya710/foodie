@@ -1,8 +1,8 @@
 import Filter from "../components/Filter"
 import FoodItems from "../components/FoodItems"
 import Footer from "../components/Footer"
-import MainCon from "../components/MainCon"
 import NavBar from "../components/NavBar"
+import Cart from "../components/Cart"
 
 const Home = () => {
     return (
@@ -10,8 +10,8 @@ const Home = () => {
             <NavBar />
             <Filter />
             <FoodItems />
-            {/* <MainCon /> */}
-            {/* <Footer /> */}
+            <Cart />
+            <Footer />
         </>
     )
 }
