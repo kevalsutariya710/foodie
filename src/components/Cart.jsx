@@ -12,7 +12,7 @@ const Cart = () => {
 
     return (
         <>
-            <div className={`fixed right-0 top-0 w-full md:w-[40vw] lg:w-[24vw] h-full border rounded-2xl bg-white p-3
+            <div className={`fixed right-0 top-0 w-full md:w-[40vw] lg:w-[23vw] h-full border rounded-2xl bg-white p-3
             ${isOpen ? "translate-x-0" : "translate-x-full"} transition-all duration-500 ease-linear z-50`}>
                 <div className="flex justify-between">
                     <span className="text-lg ">
@@ -45,8 +45,8 @@ const Cart = () => {
                 <div className="absolute bottom-0">
                     <span className="text-lg" >Total Items:</span>
                     <h1 className="text-lg">Total Price:</h1>
-                    <hr className="w-[90vw] lg:w-[16vw] m-3" />
-                    <button className="border rounded-2xl bg-green-600 p-1 w-[90vw] md:w-[18vw] lg:w-[18vw] mb-4">CheckOut</button>
+                    <hr className="w-[90vw] lg:w-[20vw] m-3" />
+                    <button className="border rounded-2xl bg-green-600 p-1 w-[90vw] md:w-[18vw] lg:w-[15vw] mb-4">CheckOut</button>
                 </div>
             </div>
             <BsCart3 onClick={() => setIsOpen(!isOpen)} className="rounded-full bg-green-100 shadow-md text-5xl p-3 fixed bottom-14 right-5" />

@@ -5,7 +5,7 @@ const Filter = () => {
         <div className="mx-6 md:flex lg:flex justify-between">
             <div>
                 <h3 className="mt-5 font-semibold flex items-center"> Category</h3>
-                <div className="my-5 flex gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden">
+                <div className="my-5 flex gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden no-scrollbar">
                     <button className="px-3 py-2 bg-gray-200 font-bold rounded-xl hover:bg-green-600 hover:text-white cursor-pointer">
                         All
                     </button>
