@@ -1,5 +1,4 @@
 
-
 const Filter = () => {
     return (
         <div className="mx-6 md:flex lg:flex justify-between">

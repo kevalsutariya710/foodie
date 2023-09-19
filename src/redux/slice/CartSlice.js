@@ -7,16 +7,30 @@ const CartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            state.cart.push(action.payload);
+
+            const Exist = state.cart.find((item) => item.id === action.payload.id);
+            if (Exist) {
+                state.cart = state.cart.map((item) => item.id === action.payload.id ?
+                    { ...item, qty: item.qty + 1 } : item)
+            }
+            else {
+                state.cart.push(action.payload);
+            }
         },
         removeFromCart: (state, action) => {
-            const index = state.cart.indexOf(action.payload);
-            state.cart.splice(index, 1)
-            state.cart = [...state.cart]
+            state.cart = state.cart.filter((item) => item.id !== action.payload.id)
 
         },
+        incrementItem: (state, action) => {
+            state.cart = state.cart.map((item) => item.id === action.payload.id ?
+                { ...item, qty: item.qty + 1 } : item)
+        },
+        decrementItem: (state, action) => {
+            state.cart = state.cart.map((item) => item.id === action.payload.id ?
+                { ...item, qty: item.qty - 1 } : item)
+        }
     },
 });
 
-export const { addToCart, removeFromCart } = CartSlice.actions;
+export const { addToCart, removeFromCart, incrementItem, decrementItem } = CartSlice.actions;
 export default CartSlice.reducer;

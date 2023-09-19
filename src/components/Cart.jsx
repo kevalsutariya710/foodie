@@ -9,6 +9,8 @@ const Cart = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const cartItem = useSelector((state) => state.cart.cart)
+    const TotalQty = cartItem.reduce((totalQty, item) => totalQty + item.qty, 0)
+    const TotalPrice = cartItem.reduce((totalPrice, item) => totalPrice + item.qty * item.price, 0)
 
     return (
         <>
@@ -43,13 +45,20 @@ const Cart = () => {
                     )
                 }
                 <div className="absolute bottom-0">
-                    <span className="text-lg" >Total Items:</span>
-                    <h1 className="text-lg">Total Price:</h1>
+                    <span className="text-lg" >Total Items: {TotalQty}</span>
+                    <h1 className="text-lg">Total Price: ₹ {TotalPrice}</h1>
                     <hr className="w-[90vw] lg:w-[20vw] m-3" />
-                    <button className="border rounded-2xl bg-green-600 p-1 w-[90vw] md:w-[18vw] lg:w-[15vw] mb-4">CheckOut</button>
+                    <div className="lg:flex lg:justify-center">
+                        <button className="bg-green-600 font-bold px-3 text-white py-2 rounded-full w-[90vw] md:w-[20vw] lg:w-[18vw] mb-5">
+                            CheckOut
+                        </button>
+                    </div>
                 </div>
             </div>
-            <BsCart3 onClick={() => setIsOpen(!isOpen)} className="rounded-full bg-green-100 shadow-md text-5xl p-3 fixed bottom-14 right-5" />
+            <BsCart3
+                onClick={() => setIsOpen(!isOpen)}
+                className="rounded-full bg-green-100 shadow-md text-5xl p-3 fixed bottom-14 right-5"
+            />
         </>
     )
 }

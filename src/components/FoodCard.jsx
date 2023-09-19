@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useDispatch } from "react-redux"
 import { addToCart } from "../redux/slice/CartSlice";
 
 const FoodCard = ({ id, img, name, desc, rating, price }) => {
 
-    const Dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     return (
         <div className="font-bold w-[250px] bg-white p-5 flex flex-col rounded-lg gap-2">
@@ -14,7 +15,7 @@ const FoodCard = ({ id, img, name, desc, rating, price }) => {
                 <h2>
                     {name}
                 </h2>
-                <span className="text-green-500">{price}</span>
+                <span className="text-green-500"> ₹ {price}</span>
             </div>
             <p className="text-sm font-normal">
                 {desc.slice(0, 70)}...
@@ -24,7 +25,7 @@ const FoodCard = ({ id, img, name, desc, rating, price }) => {
                     ⭐<span className="ml-1 ">{rating}</span>
                 </span>
                 <button className="p-2 text-white bg-green-600 hover:bg-green-500 rounded-xl text-sm"
-                    onClick={() => Dispatch(addToCart({
+                    onClick={() => dispatch(addToCart({
                         id, img, name, rating, price, qty: 1
                     }))}
                 >
