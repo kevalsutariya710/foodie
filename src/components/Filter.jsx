@@ -2,7 +2,7 @@ import { useState } from "react"
 import FoodData from "../data/FoodData"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setCategory, } from "../redux/slice/categorySlice"
+import { setCategory, } from "../redux/slice/CategorySlice"
 import { setSearch } from "../redux/slice/SearchSlice"
 
 
