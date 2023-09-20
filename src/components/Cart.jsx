@@ -3,14 +3,17 @@ import { BsCart3 } from "react-icons/bs";
 import CartItems from "./CartItems";
 import { useState } from "react";
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const navigate = useNavigate()
 
     const cartItem = useSelector((state) => state.cart.cart)
     const TotalQty = cartItem.reduce((totalQty, item) => totalQty + item.qty, 0)
     const TotalPrice = cartItem.reduce((totalPrice, item) => totalPrice + item.qty * item.price, 0)
+
 
     return (
         <>
@@ -49,12 +52,16 @@ const Cart = () => {
                     <h1 className="text-lg">Total Price: ₹ {TotalPrice}</h1>
                     <hr className="w-[90vw] lg:w-[20vw] m-3" />
                     <div className="lg:flex lg:justify-center">
-                        <button className="bg-green-600 font-bold px-3 text-white py-2 rounded-full w-[90vw] md:w-[20vw] lg:w-[18vw] mb-5">
+                        <button
+                            onClick={() => {
+                                navigate("/success")
+                            }}
+                            className="bg-green-600 font-bold px-3 text-white py-2 rounded-full w-[90vw] md:w-[20vw] lg:w-[18vw] mb-5">
                             CheckOut
                         </button>
                     </div>
                 </div>
-            </div>
+            </div >
             <BsCart3
                 onClick={() => setIsOpen(!isOpen)}
                 className="rounded-full bg-green-100 shadow-md text-5xl p-3 fixed bottom-14 right-5"

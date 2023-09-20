@@ -3,7 +3,7 @@ import { AiOutlinePlusCircle, AiOutlineMinusCircle, AiOutlineDelete } from "reac
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../redux/slice/CartSlice";
 import { incrementItem, decrementItem } from "../redux/slice/CartSlice"
-
+import toast from 'react-hot-toast';
 
 const CartItems = ({ id, img, name, price, qty }) => {
 
@@ -13,7 +13,8 @@ const CartItems = ({ id, img, name, price, qty }) => {
         <div className="flex gap-2 shadow-md p-3  border border-dotted border-gray-600 rounded-xl mt-3">
             <AiOutlineDelete
                 onClick={() => {
-                    dispatch(removeFromCart({ id, img, name, price, qty }));
+                    dispatch(removeFromCart({ id, img, name, price, qty })),
+                        toast.success(` ${name} Deleted from Cart`)
                 }}
                 className="absolute right-7 cursor-pointer"
             />
