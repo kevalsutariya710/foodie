@@ -27,26 +27,30 @@ const Cart = () => {
                         <FiArrowRightCircle className="text-2xl cursor-pointer hover:text-green-700 transition-all" />
                     </button>
                 </div>
-                {
-                    cartItem.length > 0 ? (
-                        cartItem.map((food) => {
-                            return (
-                                <CartItems
-                                    key={food.id}
-                                    id={food.id}
-                                    name={food.name}
-                                    price={food.price}
-                                    img={food.img}
-                                    qty={food.qty}
-                                />
-                            );
-                        })
-                    ) : (
-                        <h2 className="text-center text-xl mt-10 text-gray-800">
-                            Your cart is empty
-                        </h2>
-                    )
-                }
+                <div className=" overflow-y-scroll h-[480px] md:h-[400px] lg:h-[460px] no-scrollbar">
+                    {
+                        cartItem.length > 0 ? (
+                            cartItem.map((food) => {
+                                return (
+
+                                    <CartItems
+                                        key={food.id}
+                                        id={food.id}
+                                        name={food.name}
+                                        price={food.price}
+                                        img={food.img}
+                                        qty={food.qty}
+                                    />
+
+                                );
+                            })
+                        ) : (
+                            <h2 className="text-center text-xl mt-10 text-gray-800">
+                                Your cart is empty
+                            </h2>
+                        )
+                    }
+                </div>
                 <div className="absolute bottom-0">
                     <span className="text-lg" >Total Items: {TotalQty}</span>
                     <h1 className="text-lg">Total Price: ₹ {TotalPrice}</h1>
